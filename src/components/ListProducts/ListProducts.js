@@ -4,10 +4,10 @@ const ListProducts = ({children}) => {
     return(
         <div>
                 <h2>{children}</h2>
-            <Cards tittle='Iphone 13' price='600' model='Mini'/>
-            <Cards tittle='Iphone 13' price='800' model='Original'/>
-            <Cards tittle='Iphone 13' price='1000' model='Pro'/>
-            <Cards tittle='Iphone 13' price='1200' model='Pro Max'/>
+            <Cards tittle='Iphone 13 Mini' price='600' color='Black'/>
+            <Cards tittle='Iphone 13 Original' price='800' color='White'/>
+            <Cards tittle='Iphone 13 Pro' price='1000' color='Blue'/>
+            <Cards tittle='Iphone 13 Pro Max' price='1200' color='Red'/>
         </div>
     )
 }

@@ -1,11 +1,9 @@
-import imgCart from './carrito.jpg'
 import './imgCart.css'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const Cartwidget = () => {
     return(
-        <div>
-            <img src={imgCart} alt='imagen de carrito' className='img'/>
-        </div>
+        <ShoppingCartIcon/>
     )
 }
 

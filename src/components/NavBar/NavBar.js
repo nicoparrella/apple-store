@@ -31,12 +31,12 @@ const NavBar = () => {
     };
 
     return (
-    <AppBar position="static">
+    <AppBar position="static" style={{ background: '#212121' }}>
         
         <Container maxWidth="xl">
         <Toolbar disableGutters>
         <Typography
-            variant="h6"
+            variant="h4"
             noWrap
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
@@ -80,14 +80,6 @@ const NavBar = () => {
                 ))}
             </Menu>
             </Box>
-            <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-            >
-            AppleStore
-            </Typography>
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
                 <Button

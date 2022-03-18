@@ -4,6 +4,18 @@
     display: flex;
     flex-direction: column;
     margin: 10px 0px 0px 10px;
-    width: 220px;
+    width: 300px;
     display: inline-block;
+}
+
+.addBuy{
+    margin: 10px;
+    color: black;
+    padding: 10px;
+}
+
+.removeBuy{
+    margin: 10px;
+    color: black;
+    padding: 10px;
 }
