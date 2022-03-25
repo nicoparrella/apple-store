@@ -1,17 +1,12 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar'
-import ListProducts from './components/ListProducts/ListProducts';
+import ItemListContainer from './components/ListProducts/ItemListContainer';
 
 function App() {
   return (
     <div>
       <NavBar/>
-      <ListProducts>
-        <p>New Products</p>
-      </ListProducts>
-      <ListProducts>
-        <p>Ofertas</p>
-      </ListProducts>
+      <ItemListContainer />
     </div>
   );
 }
