@@ -1,6 +1,5 @@
 import React from 'react';
 import CardsProducts from '../Cards/CardsProducts';
-import ItemListProduct from '../Items/ItemListProduct'
 
 const Item = ({title, price, color, img}) => {
     return (

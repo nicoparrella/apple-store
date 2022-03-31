@@ -11,8 +11,26 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Cartwidget from '../CartWidget/CartWidget';
+import { Link } from 'react-router-dom';
 
-const pages = ['Productos', 'Nosotros', 'Contacto'];
+const pages = [
+    {
+        title:'Home',
+        url:'/home'
+    },
+    {
+    title:'Productos',
+    url: '/productos'
+    },
+    {
+        title:'Nosotros',
+        url:'/nosotros'
+    },
+    {
+        title:'Contacto',
+        url:'/contacto'
+    }
+]
 
 const NavBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -74,8 +92,8 @@ const NavBar = () => {
                 }}
             >
                 {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.title} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center"><Link to={page.url}>{page.title}</Link></Typography>
                 </MenuItem>
                 ))}
             </Menu>
@@ -83,11 +101,11 @@ const NavBar = () => {
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
                 <Button
-                key={page}
+                key={page.title}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
                 >
-                {page}
+                <Link to={page.url}>{page.title}</Link>
                 </Button>
             ))}
             </Box>
