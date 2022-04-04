@@ -1,30 +1,29 @@
-import React,{useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom'
-
-export const ItemListProduct = [
+const ItemListProduct = [
     {
         title: 'Iphone 13 Mini',
         price: 500,
         color: 'black',
         img: 'Iphone13Mini.png',
-        id: 1
+        id: '1'
     },{
         title: 'Iphone 13',
         price: 650,
         color: 'white',
         img: 'Iphone13png.png',
-        id: 2
+        id: '2'
     },{
         title: 'Iphone 13 Pro',
         price: 800,
         color: 'red',
         img: 'Iphone13Pro.png',
-        id: 3
+        id: '3'
     },{
         title: 'Iphone 13 Pro Max',
         price: 1000,
         color: 'black',
         img: 'Iphone13ProMax.png',
-        id: 4
+        id: '4'
     },
 ]
+
+export default ItemListProduct;

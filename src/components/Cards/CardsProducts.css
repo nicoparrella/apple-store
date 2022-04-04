@@ -23,3 +23,9 @@
 img{
     width: 200px;
 }
+
+.verProducto{
+    margin: 10px;
+    color: black;
+    padding: 10px;
+}

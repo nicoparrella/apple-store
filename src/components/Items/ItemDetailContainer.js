@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react'
 import ItemDetail from './ItemDetail'
-import mockProduct from './MockProduct'
+import ItemListProduct from './ItemListProduct'
 
 const ItemDetailContainer = () => {
     const [dataProduct, setDataProduct] = useState({})
 
     const getProduct = () => {
         return new Promise((resolve, reject) => {
-            return resolve(mockProduct)
+            return resolve(ItemListProduct)
         })
     }
 

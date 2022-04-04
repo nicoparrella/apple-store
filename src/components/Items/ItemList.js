@@ -1,33 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import Item from '../Items/Item'
-import { ItemListProduct } from '../Items/ItemListProduct'
+import ItemListProduct from './ItemListProduct'
 import "../Cards/CardsProducts.css"
-import { useParams } from 'react-router-dom'
-
-// const DetailPage = () => {
-//     const { id, category } = useParams()
-//     const [product, setProduct] = useState({})
-
-//     useEffect( () => {
-//         FilterProductsById(ItemListProduct, id)
-//     }, [id])
-
-//     const FilterProductsById = () => {
-//         return ItemListProduct.filter( (product) =>{
-//             if(product.id === id)
-//                 return console.log('id:', id , 'producto:' , product)
-//         })
-//     }
-// }
-
-// const FilterProductsById = (array, id) => {
-//     return array.map( (product) => {
-//         if(product.id == id){
-//             return console.log('producto filtrado:', product, 'id:', id)
-//         }
-//     })
-// }
-
 
 const ItemList = () => {
     const [products, setProducts] = useState([]);
@@ -67,6 +41,7 @@ const ItemList = () => {
                         title={product.title}
                         price={product.price}
                         color={product.color}
+                        id={product.id}
                         />
                     </div>
                     );
@@ -80,5 +55,6 @@ const ItemList = () => {
         </div>
     );
 };
+
 
 export default ItemList;
