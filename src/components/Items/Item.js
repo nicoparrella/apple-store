@@ -1,8 +1,11 @@
-import React from 'react';
-import CardsProducts from '../Cards/CardsProducts';
+import ItemCount from '../Cards/ItemCount';
 import { Link } from "react-router-dom";
 
 const Item = ({title, price, color, img, id}) => {
+    const addProduct = (cant) => {
+        console.log(`Agregaste ${cant}`)
+    }
+
     return (
         <article>
             <img src={`./${img}`} alt={{img}}/>
@@ -10,7 +13,7 @@ const Item = ({title, price, color, img, id}) => {
             <h2>${price}</h2>
             <h3>Color: {color}</h3>
             <Link to={`/productos/${id}`}><button className="verProducto">Ver</button></Link>
-            <CardsProducts/>
+            <ItemCount addProduct={addProduct}/>
         </article>
     )
 }

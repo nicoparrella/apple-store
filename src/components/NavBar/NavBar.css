@@ -1,3 +1,14 @@
+.btn-carrito{
+    color: black;
+    padding: 5px;
+    border-radius: 6px;
+
+}
+
+.btn-carrito:hover{
+    background-color: rgb(216, 216, 216);
+}
+
 a{
     color: white;
     text-decoration: none;

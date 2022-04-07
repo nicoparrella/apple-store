@@ -1,9 +1,19 @@
-import { Container } from "@mui/material"
+import { Alert, Container } from "@mui/material"
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import React from "react"
-import CardsProducts from "../Cards/CardsProducts"
+import ItemCount from "../Cards/ItemCount"
 import ItemListProduct from './ItemListProduct'
+import CartContext from '../Context/CartContext';
+
+
+// const { cartProducts, addProductToCart } = useContext(CartContext)
+// const addToCart = (e) => {
+//     e.stopPropagation()  
+//     console.log("Productos agregados:", cartProducts) 
+//     addProductToCart(data)
+// }
+
 
 const ItemDetail = ({}) => {
     const {id} = useParams()
@@ -20,13 +30,17 @@ const ItemDetail = ({}) => {
             }
         })
     }
+    const addProduct = (cant) => {
+        console.log(`Agregaste ${cant}`)
+    }
+
     return(
         <Container>
             <img src={`/${data.img}`} alt= {'iphone'}></img>
             <h1>{data.title}</h1>
             <h2>${data.price}</h2>
             <h3>Color: {data.color}</h3>
-            <CardsProducts/>
+            <ItemCount addProduct={addProduct}/>
         </Container>
     )
 }
