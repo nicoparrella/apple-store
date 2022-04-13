@@ -1,75 +1,57 @@
-import React,{useState, useEffect} from 'react'
-import Item from '../Items/Item'
-import ItemListProduct from './ItemListProduct'
-import "../Cards/CardsProducts.css"
-import { collection, getDocs } from 'firebase/firestore'
-import db from '../../firebase'
+import ItemListProduct from "./ItemListProduct"
+import { useParams } from "react-router-dom"
+import { useEffect, useState, useContext } from "react"
+import CartContext from "../Context/CartContext"
+import ItemDetail from "./ItemDetail"
+import { Button, Container, Grid } from "@mui/material"
+import ItemCount from "../Cards/ItemCount"
 
 const ItemList = () => {
-    const [products, setProducts] = useState([]);
+    const { CartsProducts, addProductCart } = useContext(CartContext)
+    const { id } = useParams();
+    const [product, setProduct] = useState([]);
 
-    // const getProducts = async () => {
-    //     const itemsCollection = collection(db, 'productos')
-    //     const productSnapshot = await getDocs(itemsCollection)
-    //     const productList = ItemListProduct.docs.map((doc) => {
-    //         let product = doc.data()
-    //         product.id = doc.id
-    //         console.log('product: ', product)
-    //         return product
-    //     }
-    // )
-    // return productList
-    // }
+    const filterProduct = () => {
 
-    const getProducts = new Promise((resolve, reject) => {
-        setTimeout(() => {
-        resolve(ItemListProduct);
-        }, 2000);
-    });
-    
-    const getProductsFromDB = async () => {
-        try {
-        const result = await getProducts;
-        setProducts(result);
-        } catch (error) {
-        console.log(error);
-        alert('No podemos mostrar los productos en este momento');
-        }
-    };
+        ItemListProduct.map((product) => {
+            if (id == product.id) {
+                return setProduct(product)
+            }
+
+        })
+    }
+    const addtoCart = (qty) => {
+
+
+        addProductCart(product, qty);
+
+
+    }
+    const verProducto = () => {
+        console.log(CartsProducts)
+    }
+
     useEffect(() => {
-        getProductsFromDB();
-    }, []); 
+        filterProduct()
+
+    }, [id])
+
     return (
-        <div>
-        {
-            
-            products.length ? ( 
-            <>
-                {
-                
-                products.map((product) => {
-                    
-                    return (
-                    <div key={product.id} className='card'>
-                        <Item 
+        <div className="boxItem">
+            <Container>
+                    <ItemDetail
                         img={product.img}
                         title={product.title}
                         price={product.price}
                         color={product.color}
-                        id={product.id}
-                        />
-                    </div>
-                    );
-                })
-                }
-            </>
-            ) : (
-            <p>Cargando productos...</p>
-            ) 
-        }
+                    />
+
+
+                    <ItemCount addProduct={addtoCart} />
+            </Container>
+
         </div>
-    );
-};
+    )
 
-
-export default ItemList;
+}
+export default ItemList

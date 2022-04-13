@@ -7,7 +7,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 const CartPage = () => {
     const { CartsProducts, deleteProduct, calculeTotalPrice, emptyCart } = useContext(CartContext)
 
-    console.log("cartProducts:", CartsProducts)
     return(
         <Container> 
             <div>
@@ -20,9 +19,9 @@ const CartPage = () => {
                             </div>
                             <Container>
                                 <img src={`/${img}`} alt= {'iphone'}></img>
-                                <h1>{title}Prueba</h1>
-                                <h2>${price}Prueba</h2>
-                                <h3>Color: {color}Prueba</h3>
+                                <h1>{title}</h1>
+                                <h2>${price}</h2>
+                                <h3>Color: {color}</h3>
                                 <button onClick={() => deleteProduct(cartProduct)}><DeleteIcon/></button>
                             </Container>
                         </div>

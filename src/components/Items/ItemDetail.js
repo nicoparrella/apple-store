@@ -1,44 +1,23 @@
 import { Alert, Container } from "@mui/material"
 import { useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import {useContext, useEffect, useState} from "react";
 import React from "react"
 import ItemCount from "../Cards/ItemCount"
 import ItemListProduct from './ItemListProduct'
-import CartContext, { useCartContext } from '../Context/CartContext';
+import CartContext from '../Context/CartContext';
 
+const ItemDetail = (product) => {
 
-const ItemDetail = ({}) => {
-    const {id} = useParams()
-    const [data, setProduct] = useState({})
-    const { addProductCart } = useCartContext()
+    const { title,img,price,color,id } = product
+    
 
-    useEffect( () => {
-        filterProductById(ItemListProduct, id)
-    }, [id])
-
-    const filterProductById = (array , id) => {
-        return array.map( (product) => {
-            if(product.id == id) {
-                return setProduct(product)
-            }
-        })
-    }
-    // const addProduct = (cant) => {
-    //     console.log(`Agregaste ${cant}`)
-    // }
-
-    const addProduct = (product, cant) => {
-        addProductCart(product)
-        console.log('Agregaste al carrito')
-        }
 
     return(
-        <Container>
-            <img src={`/${data.img}`} alt= {'iphone'}></img>
-            <h1>{data.title}</h1>
-            <h2>${data.price}</h2>
-            <h3>Color: {data.color}</h3>
-            <ItemCount addProduct={addProduct}/>
+        <Container className="card-ind">
+            <img src={`/${img}`} alt= {'iphone'}></img>
+            <h1>{title}</h1>
+            <h2>${price}</h2>
+            <h3>Color: {color}</h3>
         </Container>
     )
 }

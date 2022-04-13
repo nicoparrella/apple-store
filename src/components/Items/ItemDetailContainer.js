@@ -1,30 +1,42 @@
-import { useEffect, useState } from 'react'
-import ItemDetail from './ItemDetail'
-import ItemListProduct from './ItemListProduct'
+import React from "react"
+import { useState, useEffect } from "react";
+import ItemListProduct from "./ItemListProduct";
+import ItemDetail from "./ItemDetail";
+import Container from "@mui/material/Container"
 
-const ItemDetailContainer = () => {
-    const [dataProduct, setDataProduct] = useState({})
+const ItemDetailContainer = ({item}) => {
+    const [itemElegido, setItemElegido] = useState([]);
+    const getItem = (i) => {
 
-    const getProduct = () => {
-        return new Promise((resolve, reject) => {
-            return resolve(ItemListProduct)
-        })
+            return new Promise((resolve, reject) => {
+                return resolve(ItemListProduct[i]);
+            })
     }
 
-    useEffect( () => {
-        getProduct().then( (producto) => {
-            setDataProduct(producto)
-            console.log("Llamada al mock:", producto)
-        }).finally( () => {
-            console.log("Termino la llamada")
-        })
+    useEffect(() => {
+        setTimeout(() => {
+            return getItem(item).then((value) => {
+                setItemElegido(value);
+                
+                
+            })
+        }, 2000)
     }, [])
 
     return (
-        <>
-            <ItemDetail data={dataProduct}/>
-        </>
+        <Container>
+        <div>
+            {console.log(itemElegido)}
+            <ItemDetail 
+            image= {itemElegido.img}
+            name ={itemElegido.title}
+            price={itemElegido.price}
+            color={itemElegido.color}
+            />
+        
+        </div>
+        </Container>
     )
-}
 
+}
 export default ItemDetailContainer

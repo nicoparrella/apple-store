@@ -17,7 +17,7 @@ import { Link } from 'react-router-dom';
 const pages = [
     {
         title:'Home',
-        url:'/home'
+        url:'/'
     },
     {
     title:'Productos',

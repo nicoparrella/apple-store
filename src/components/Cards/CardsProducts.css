@@ -6,26 +6,17 @@
     margin: 10px 0px 0px 10px;
     width: 300px;
     display: inline-block;
+    color: black;
+}
+.card:hover{
+    background-color: rgb(149, 149, 149);
 }
 
-.addBuy{
-    margin: 10px;
-    color: black;
-    padding: 10px;
-}
-
-.removeBuy{
-    margin: 10px;
-    color: black;
-    padding: 10px;
+.card-ind{
+    border: 1px solid black;
+    margin: 30px;
 }
 
 img{
     width: 200px;
-}
-
-.verProducto{
-    margin: 10px;
-    color: black;
-    padding: 10px;
 }
