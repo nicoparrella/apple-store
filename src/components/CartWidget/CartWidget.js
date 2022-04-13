@@ -1,15 +1,14 @@
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useState, useContext } from 'react'
-import CartContext from '../Context/CartContext';
 import Button from '@mui/material/Button';
-import DeleteIcon from '@mui/icons-material/Delete';
 import { Link } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
+import CartContext, { useCartContext } from '../Context/CartContext';
 
 const Cartwidget = () => {
     const [anchorEl, setAnchorEl] = useState(null);
+    const {CartsProducts, cantidad } = useCartContext()
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);

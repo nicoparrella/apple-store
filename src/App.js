@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Container } from '@mui/material';
 import ItemDetailContainer from './components/Items/ItemDetailContainer';
 import CartContext, { CartProvider } from './components/Context/CartContext'
+import CartPage from './Cart/CartPage';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
               <Route path='/home' element={<ItemListContainer/>}/>
               <Route path='*' element={<Container><h1>Error 404 - Pagina no encontrada</h1></Container>}/>
               <Route path='/productos/:id' element={<ItemDetailContainer/>}/>
-              <Route path='/cart' element={<h1>Finalizar compra</h1>}/>
+              <Route path='/cart' element={<CartPage/>}/>
             </Routes>
         </BrowserRouter>
       </CartProvider>

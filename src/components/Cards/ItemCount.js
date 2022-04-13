@@ -1,6 +1,6 @@
 import React,{ useState, useEffect, useContext } from 'react'
-import CartContext from '../Context/CartContext';
 import Button from '@mui/material/Button';
+import { ProductionQuantityLimits } from '@mui/icons-material';
 
     const ItemCount = ({addProduct}) => {
     const [click, setClick] = useState(1);
@@ -18,8 +18,8 @@ import Button from '@mui/material/Button';
     return (
     <>
         <h4>Compraste: {click}</h4>
-        <button onClick={addBuy} className="addBuy">Comprar</button>
-        <button onClick={removeBuy} className="removeBuy">Quitar Compra</button>
+        <button onClick={addBuy} className="addBuy">+</button>
+        <button onClick={removeBuy} className="removeBuy">-</button>
         <Button onClick={() => addProduct(click)}>Agregar al carrito</Button>
     </>
     );

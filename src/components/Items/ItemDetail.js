@@ -4,20 +4,13 @@ import { useEffect, useState } from 'react';
 import React from "react"
 import ItemCount from "../Cards/ItemCount"
 import ItemListProduct from './ItemListProduct'
-import CartContext from '../Context/CartContext';
-
-
-// const { cartProducts, addProductToCart } = useContext(CartContext)
-// const addToCart = (e) => {
-//     e.stopPropagation()  
-//     console.log("Productos agregados:", cartProducts) 
-//     addProductToCart(data)
-// }
+import CartContext, { useCartContext } from '../Context/CartContext';
 
 
 const ItemDetail = ({}) => {
     const {id} = useParams()
     const [data, setProduct] = useState({})
+    const { addProductCart } = useCartContext()
 
     useEffect( () => {
         filterProductById(ItemListProduct, id)
@@ -30,9 +23,14 @@ const ItemDetail = ({}) => {
             }
         })
     }
-    const addProduct = (cant) => {
-        console.log(`Agregaste ${cant}`)
-    }
+    // const addProduct = (cant) => {
+    //     console.log(`Agregaste ${cant}`)
+    // }
+
+    const addProduct = (product, cant) => {
+        addProductCart(product)
+        console.log('Agregaste al carrito')
+        }
 
     return(
         <Container>
