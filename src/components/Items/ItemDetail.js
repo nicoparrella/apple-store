@@ -8,10 +8,8 @@ import CartContext from '../Context/CartContext';
 
 const ItemDetail = (product) => {
 
-    const { title,img,price,color,id } = product
+    const { title,img,price,color} = product
     
-
-
     return(
         <Container className="card-ind">
             <img src={`/${img}`} alt= {'iphone'}></img>
