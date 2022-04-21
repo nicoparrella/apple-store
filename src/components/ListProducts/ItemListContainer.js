@@ -1,4 +1,3 @@
-import ItemListProduct from "../Items/ItemListProduct";
 import { useEffect, useState } from "react";
 import Item from "../Items/Item";
 import { Link, useParams } from "react-router-dom"

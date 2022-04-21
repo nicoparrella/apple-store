@@ -1,6 +1,5 @@
 import React from "react"
 import { useState, useEffect } from "react";
-import ItemListProduct from "./ItemListProduct";
 import ItemDetail from "./ItemDetail";
 import Container from "@mui/material/Container"
 import db from "../../firebase";

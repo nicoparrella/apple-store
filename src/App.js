@@ -3,7 +3,6 @@ import NavBar from './components/NavBar/NavBar'
 import ItemListContainer from './components/ListProducts/ItemListContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Container } from '@mui/material';
-import ItemDetailContainer from './components/Items/ItemDetailContainer';
 import CartContext, { CartProvider } from './components/Context/CartContext'
 import CartPage from './Cart/CartPage';
 import ItemList from './components/Items/ItemList';

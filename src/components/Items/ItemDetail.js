@@ -1,15 +1,8 @@
-import { Alert, Container } from "@mui/material"
-import { useParams } from 'react-router-dom';
-import {useContext, useEffect, useState} from "react";
+import { Container } from "@mui/material"
 import React from "react"
-import ItemCount from "../Cards/ItemCount"
-import ItemListProduct from './ItemListProduct'
-import CartContext from '../Context/CartContext';
 
-const ItemDetail = (product) => {
+const ItemDetail = ({title, price, color, img, id,categoria}) => {
 
-    const { title,img,price,color} = product
-    
     return(
         <Container className="card-ind">
             <img src={`/${img}`} alt= {'iphone'}></img>
