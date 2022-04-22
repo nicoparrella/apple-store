@@ -1,4 +1,4 @@
-const Item = ({title, price, color, img, id,categoria}) => {
+const Item = ({title, price, color, img}) => {
 
     return (
         <article>

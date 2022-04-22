@@ -1,7 +1,7 @@
 import { Container } from "@mui/material"
 import React from "react"
 
-const ItemDetail = ({title, price, color, img, id,categoria}) => {
+const ItemDetail = ({title, price, color, img}) => {
 
     return(
         <Container className="card-ind">

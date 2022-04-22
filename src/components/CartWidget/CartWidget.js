@@ -1,10 +1,9 @@
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
 import Divider from '@mui/material/Divider';
-import CartContext, { useCartContext } from '../Context/CartContext';
 
 const Cartwidget = () => {
     const [anchorEl, setAnchorEl] = useState(null);

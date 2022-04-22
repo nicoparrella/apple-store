@@ -18,32 +18,42 @@ const CartPage = () => {
 
     const [order, setOrder] = useState(
         {
-            buyer: formData,
-            items: CartsProducts,
+            buyer : formData,
+            items: CartsProducts.map( (cartProduct)=> {
+                return {
+                    id: cartProduct.id,
+                    title: cartProduct.title,
+                    price: cartProduct.price
+                }
+            }),
             total: calculeTotalPrice
-        }
-    )
-        const [successOrder, setsuccessOrder] = useState()
-        const handleChange = (e) => {
-            setFormData({
-                ...formData,
-                [e.target.name] : e.target.value
-            })
-            console.log(e.target.value, e.target.name)
-        }
+        })
+        const [successOrder, setSuccessOrder] = useState()
 
         const handleSubmit = (e) => {
-            let prevOrder = {...order,buyer: formData}
             e.preventDefault()
-            setOrder({...order,buyer: formData})
+            let prevOrder = {...order, buyer: formData}
+            setOrder({...order, buyer: formData})
             pushOrder(prevOrder)
+        }
+
+        const handleChange = (e) => {
+            const {value, name} = e.target
+            console.log("value: ", value)
+            console.log("name: ", name)
+    
+            setFormData({
+                ...formData,
+                [name]: value
+            })
         }
 
         const pushOrder = async (prevOrder) => {
             const orderFirebase = collection(db, 'ordenes')
             const orderDoc = await addDoc(orderFirebase, prevOrder)
-            console.log('orderDoc: ', orderDoc.id )
-            setsuccessOrder(orderDoc.id)
+            console.log("orden generada: ", orderDoc.id)
+            setSuccessOrder(orderDoc.id)
+            
         }
 
     return(

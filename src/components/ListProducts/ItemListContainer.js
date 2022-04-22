@@ -5,8 +5,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import "../Cards/CardsProducts.css"
 import db from "../../firebase";
-import { collection, getDocs } from "firebase/firestore";
-import { async } from "@firebase/util";
+import { collection,getDocs } from "firebase/firestore";
 
 const ItemListContainer = ({children}) => {
     const { category } = useParams();
@@ -22,91 +21,52 @@ const ItemListContainer = ({children}) => {
             product.id = doc.id
             console.log('Product:', product)
             return product
-            }
-        )
+            })
             return productList
         }
 
     useEffect(() => {
         setLoading(true)
         setProducts([])
-        
         return getProducts().then((productos) => {
             setLoading(false);
-            category ? filterProductByCategory(productos, category) : setProducts(productos)
+            setProducts(productos)
         })
-
-    }, [category])
-    const filterProductByCategory = (array, category) => {
-        array.map((producto)=> {
-            if (category == producto.categoria){
-                return setProducts( products => [...products, producto])
-            }
-        })
-
-
-    }
-
+    }, [])
 
     return (
-        
         <div>
-            
-            
             { 
                 !loading ? (
                     products.map((producto) => {
-                        const { title, price, color, img, id, categoria } = producto;
+                        const { title, price, color, img, id} = producto;
                         if (category) {
                             return (
-                                
                                 <Link to={`./${id}`}>
-                                <div key={id} className="item" >
-                                    <Item
-                                        title={title}
-                                        price={price}
-                                        color={color}
-                                        img={img}
-                                    />
-                            
-                                </div>
+                                    <div key={id} className="item" >
+                                        <Item
+                                            title={title}
+                                            price={price}
+                                            color={color}
+                                            img={`/${img}`}/>
+                                    </div>
                                 </Link>
                             )} 
                             else {
                                 return (
-                                
-                                    <Link to={`./${categoria}/${id}`}>
+                                    <Link to={`./product/${id}`}>
                                     <div key={id} className="card" >
                                         <Item
                                             title={title}
                                             price={price}
                                             color={color}
-                                            img={img}
+                                            img={`/${img}`}
                                         />
-                                
                                     </div>
                                     </Link>
                                 )}
-    
-                        }
-    
-    
-    
-                        )
-    
-                    ) : (
-                        
-                        
-                        <Box sx={{ display: 'flex' }}>
-                            <CircularProgress />
-                        </Box>
-                    )
+                        })) : (<Box sx={{ display: 'flex' }}><CircularProgress /></Box>)
                 }
-    
             </div>
-    
-    
-        )
-    
-    }
+        )}
     export default ItemListContainer;
