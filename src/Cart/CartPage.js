@@ -21,12 +21,12 @@ const CartPage = () => {
             buyer : formData,
             items: CartsProducts.map( (cartProduct)=> {
                 return {
-                    id: cartProduct.id,
+                    name: cartProduct.id,
                     title: cartProduct.title,
                     price: cartProduct.price
                 }
             }),
-            total: calculeTotalPrice
+            total: calculeTotalPrice()
         })
         const [successOrder, setSuccessOrder] = useState()
 
